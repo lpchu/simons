@@ -48,7 +48,7 @@ python run.py
 ```
 This will perform all the steps outlined above, writes out allele counts table to `allele_counts.tsv` at project root, 
 and outputs 10 data files aggregated from original input data under `exercise_input_data_public/` based on the last
-digit of the sample IDs under `output/` directory, `output/1.chr21.10000000_14999999.tsv.gz` for example). 
+digit of the sample IDs under `output/` directory, `output/1.chr21.10000000_14999999.tsv.gz` for example. 
 Each file also include all variant info columns.
 
 ### Running `tasks.sh`
