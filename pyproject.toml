@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "simons"
+version = "0.1.0"
+description = ""
+authors = ["lpchu <lienpchu@gmail.com>"]
+readme = "README.md"
+packages = [
+    {include = "src"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.2"
+pydantic = "^2.8.2"
+tqdm = "^4.66.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
