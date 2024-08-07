@@ -64,7 +64,6 @@ Each file also includes all variant info columns.
 > Must be run _after_ `run.py`. 
 
 ```shell
-chmod +x tasks.sh
 ./tasks.sh output
 ```
 This creates 5 new files from each of the 10 files deposited in `output/` directory
