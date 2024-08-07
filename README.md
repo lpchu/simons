@@ -5,13 +5,15 @@ Fifty (50) `.tsv.gz` files located under `exercise_input_data_public/` directory
 
 ## Deliverables
 ### 1. `run.py`
-Main script to that does the following:
+Main script that does the following:
 - Find all files ending with `.tsv.gz` under `exercise_input_data_public/` directory.
 - Merge all files into a single data structure (`pd.DataFrame`):
   - Number of columns: 9 variant info columns + number of samples
+  - Variant info columns: `#CHROM`, `POS`, `ID`, `REF`, `ALT`, `QUAL`, `FILTER`, `INFO` & `FORMAT`.
 - Rename sample `HG10101` to `HG00101`.
 - Create a new table with major and minor allele counts per sample.
-- Aggregate and save the data as 10 different files based on the last digit of the sample ID under `output/` directory.
+- Aggregate and save the concatenated data as 10 different files based on the last digit of the sample ID 
+under `output/` directory.
 
 ### 2. `allele_counts.tsv`
 Major and minor allele count table for each sample (50 in total) with columns `sample_id`, `major_count` 
