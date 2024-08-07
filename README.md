@@ -36,7 +36,8 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-Optionally, install `poetry` with `pipx install poetry` if using `poetry` for package management.
+Optionally, install `poetry` with `pipx install poetry` (and then `export PATH="$HOME/.local/bin:$PATH"`)
+if using `poetry` for package management.
 
 ### Install all dependencies
 #### Using `pip`
