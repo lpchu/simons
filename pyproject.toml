@@ -15,6 +15,9 @@ pydantic = "^2.8.2"
 tqdm = "^4.66.5"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
