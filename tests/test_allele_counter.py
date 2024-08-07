@@ -1,8 +1,8 @@
-import pytest
-
-from pydantic import ValidationError
-from src.allele_counter import AlleleCounter
 import pandas as pd
+import pytest
+from pydantic import ValidationError
+
+from src.allele_counter import AlleleCounter
 
 
 class TestAlleleCounter:
@@ -40,13 +40,13 @@ class TestAlleleCounter:
         with pytest.raises(ValidationError) as _:
             AlleleCounter(input_path=input_path, output_path=output_path)
 
-    def test_should_merge_datasets(self, allele_counter):
+    def test_should_merge_datasets(self, allele_counter, current_dir):
         # given
-        df1 = pd.read_csv('resources/HG00096.chr21.10000000_14999999.tsv.gz',
+        df1 = pd.read_csv(current_dir + '/resources/HG00096.chr21.10000000_14999999.tsv.gz',
                           sep='\t',
                           compression='gzip',
                           dtype=object)
-        df2 = pd.read_csv('resources/HG00097.chr21.10000000_14999999.tsv.gz',
+        df2 = pd.read_csv(current_dir + '/resources/HG00097.chr21.10000000_14999999.tsv.gz',
                           sep='\t',
                           compression='gzip',
                           dtype=object)
@@ -58,9 +58,9 @@ class TestAlleleCounter:
         # then
         pd.testing.assert_frame_equal(actual, expected)
 
-    def test_should_count_total_alleles_for_each_sample(self, allele_counter):
+    def test_should_count_total_alleles_for_each_sample(self, allele_counter, current_dir):
         # given
-        df = pd.read_csv('resources/HG00096.chr21.10000000_14999999.tsv.gz',
+        df = pd.read_csv(current_dir + '/resources/HG00096.chr21.10000000_14999999.tsv.gz',
                          sep='\t',
                          compression='gzip',
                          dtype=object)
