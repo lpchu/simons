@@ -58,8 +58,24 @@ class TestAlleleCounter:
         # then
         pd.testing.assert_frame_equal(actual, expected)
 
-    def test_should_count_total_alleles_for_each_sample(self):
-        pass
+    def test_should_count_total_alleles_for_each_sample(self, allele_counter):
+        # given
+        df = pd.read_csv('resources/HG00096.chr21.10000000_14999999.tsv.gz',
+                         sep='\t',
+                         compression='gzip',
+                         dtype=object)
+        hg96_minor_allele_counts = df['HG00096'].apply(lambda x: x.split('|').count('1')).sum()
+        hg96_major_allele_counts = df['HG00096'].apply(lambda x: x.split('|').count('0')).sum()
+
+        # when
+        merged_dataset = allele_counter.merge_dataset()
+        actual = allele_counter.count_alleles(dataset=merged_dataset,
+                                              sample_ids=['HG00096', 'HG00097'])
+
+        # then
+        assert list(actual.reset_index().columns) == ['sample_id', 'major_count', 'minor_count']
+        assert actual.loc['HG00096', 'minor_count'] == hg96_minor_allele_counts
+        assert actual.loc['HG00096', 'major_count'] == hg96_major_allele_counts
 
 
 if __name__ == "__main__":
