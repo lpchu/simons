@@ -20,7 +20,7 @@ Major and minor allele count table for each sample (50 in total) with columns `s
 (annotated `0`) and `minor_count` (annotated `1`).
 
 ### 3. `tasks.sh`
-Shell script to generate 5 smaller files from each of the 10 aggregated data files generated from `src/run.py` script 
+Shell script to generate 5 smaller files from each of the 10 aggregated data files generated from `run.py` script 
 under `output/` directory in chunks of 1Mpb each.
 
 ## Running the scripts
@@ -55,8 +55,8 @@ python run.py
 ```
 This will perform all the steps outlined above, writes out allele counts table to `allele_counts.tsv` at project root, 
 and outputs 10 data files aggregated from original input data under `exercise_input_data_public/` based on the last
-digit of the sample IDs under `output/` directory, `output/1.chr21.10000000_14999999.tsv.gz` for example. 
-Each file also include all variant info columns.
+digit of the sample IDs to `output/` directory, `output/1.chr21.10000000_14999999.tsv.gz` for example. 
+Each file also includes all variant info columns.
 
 ### Running `tasks.sh`
 > [!WARNING]
