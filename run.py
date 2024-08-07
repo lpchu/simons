@@ -8,7 +8,7 @@ logging.basicConfig()
 
 
 def run():
-    allele_counter = AlleleCounter(input_path='../exercise_input_data_public', output_path='../output')
+    allele_counter = AlleleCounter(input_path='exercise_input_data_public', output_path='output')
 
     # find and merge all datasets into 1 df
     logger.info(f"Merging all files with extension {allele_counter.file_extension} under {allele_counter.input_path}...")
@@ -22,7 +22,7 @@ def run():
     sample_ids = [i for i in allele_df.columns if i.startswith('HG')]
     logger.info(f"Generating allele count dataframe for {len(sample_ids)} samples...")
     allele_count_df = allele_counter.count_alleles(dataset=allele_df, sample_ids=sample_ids)
-    output_file_path = '../allele_counts.tsv'
+    output_file_path = 'allele_counts.tsv'
     logger.info(f"Saving allele count dataframe to {output_file_path}")
     allele_count_df.to_csv(output_file_path, sep='\t', index=True)
 
